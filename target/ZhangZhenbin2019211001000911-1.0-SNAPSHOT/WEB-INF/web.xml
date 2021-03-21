@@ -8,9 +8,23 @@
         <servlet-name>EXPECT^</servlet-name>
         <servlet-class>com.ZhangZhenbin.Week2.FirstTryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.ZhangZhenbin.Week3.LifeCycleServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>EXPECT^</servlet-name>
         <url-pattern>/MyJsp.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/Life</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
 </web-app>

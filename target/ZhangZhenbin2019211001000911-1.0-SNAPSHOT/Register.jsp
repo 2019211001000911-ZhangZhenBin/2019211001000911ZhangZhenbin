@@ -80,12 +80,12 @@
 
     <div class="container">
         <h1>Welcome</h1>
-        <form method="get">
-            <input type="text"  name="userid" placeholder="Uername" maxlength="8"/>
-            <input type="password"  name="userpw" placeholder="Passwo" minlength="8"  maxlength="12" />
-            <input type="Email"  name="email" pattern=^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" placeholder="Email"/>
+        <form method="Post" action = "Register" >
+            <input type="text"  name="username" placeholder="Uername" maxlength="8"/>
+            <input type="password"  name="password" placeholder="Password" minlength="8" maxlength="12" />
+            <input type="Email"  name="email" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" placeholder="Email"/>
             <p>Gander :</p><br>
-            <input type="radio" name="sex" value="male">male <input type="radio" name="sex" value="female"/>female
+            <input type="radio" name="gander" value="male">male <input type="radio" name="gander" value="female"/>female
             <input type="date"  name="birthdate" placeholder="Birthdate(yyy-mm-dd)"/>
             <button type="submit">  Register Now！！ </button>
         </form>
