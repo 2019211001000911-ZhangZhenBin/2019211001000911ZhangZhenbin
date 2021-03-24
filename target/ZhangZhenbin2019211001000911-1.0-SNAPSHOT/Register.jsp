@@ -80,8 +80,8 @@
 
     <div class="container">
         <h1>Welcome</h1>
-        <form method="Post" action = "Register" >
-            <input type="text"  name="username" placeholder="Uername" maxlength="8"/>
+        <form method="post" action = "Register">
+            <input type="text"  name="username" placeholder="Username" maxlength="8"/>
             <input type="password"  name="password" placeholder="Password" minlength="8" maxlength="12" />
             <input type="Email"  name="email" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" placeholder="Email"/>
             <p>Gander :</p><br>
@@ -90,6 +90,7 @@
             <button type="submit">  Register Now！！ </button>
         </form>
     </div>
+
 
 </div>
 </body>

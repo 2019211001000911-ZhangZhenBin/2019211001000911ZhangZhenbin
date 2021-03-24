@@ -13,6 +13,13 @@
         <servlet-class>com.ZhangZhenbin.Week3.LifeCycleServlet</servlet-class>
     </servlet>
 
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.ZhangZhenbin.Week3.RegisterServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>EXPECT^</servlet-name>
         <url-pattern>/MyJsp.jsp</url-pattern>
