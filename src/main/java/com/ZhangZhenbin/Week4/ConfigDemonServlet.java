@@ -3,16 +3,8 @@ package com.ZhangZhenbin.Week4;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(
         urlPatterns = {"/Config"},
