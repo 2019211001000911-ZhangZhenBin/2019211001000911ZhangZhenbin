@@ -21,7 +21,7 @@
             top:50%;
             width: 100%;
             height: 500px;
-            margin-top: -200px;
+            margin-top: -250px;
             overflow: hidden;/*隐藏滚动条*/
         }/*定位浏览器边距位置 左 上 */
         .container { /*类选择器*/
