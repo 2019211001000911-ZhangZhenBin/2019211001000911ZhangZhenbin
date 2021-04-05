@@ -5,8 +5,8 @@
   Time: 10:24
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@include file="header.jsp"%>
+    This is my JSP page.<br>
 <head>
     <title>New User Registration ! !</title>
     <style type="text/css">
@@ -75,7 +75,7 @@
         }
     </style>
 </head>
-<body>
+
 <div class="context">
 
     <div class="container">
@@ -91,7 +91,5 @@
         </form>
     </div>
 
-
 </div>
-</body>
-</html>
+<%@include file="footer.jsp"%>
