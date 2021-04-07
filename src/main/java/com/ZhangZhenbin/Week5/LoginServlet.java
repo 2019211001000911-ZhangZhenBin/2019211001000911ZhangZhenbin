@@ -51,33 +51,6 @@ public class LoginServlet extends HttpServlet {
         String Password = request.getParameter("password");
 
         //response
-/*
-        String  a = null;
-        String b = null;
-        PrintWriter writer = response.getWriter();
-        try {
-            Statement Greatest = con.createStatement();
-            String User= "select * from userdb.dbo.usertable where username='EXPECT^'and password='1305172969'";
-            ResultSet rs = Greatest.executeQuery(User);
-            while(rs.next()) {
-                a = rs.getString("username");
-                b = rs.getString("password");
-                }
-            } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        
-            if (Objects.equals(Username, a) && Objects.equals(Password, b)) {
-                    writer.println("Login Success!!!");
-                    writer.println("Welcome  " + a);
-                } else {
-                    writer.println("Username or Password Error!!!");
-                }
-
-        
-    }
-
-*/
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         try {
