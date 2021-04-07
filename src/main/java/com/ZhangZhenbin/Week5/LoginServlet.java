@@ -47,11 +47,11 @@ public class LoginServlet extends HttpServlet {
 
         //get parameter from request
 
-         String Username = request.getParameter("username");
-         String Password = request.getParameter("password");
+        String Username = request.getParameter("username");
+        String Password = request.getParameter("password");
 
         //response
-
+/*
         String  a = null;
         String b = null;
         PrintWriter writer = response.getWriter();
@@ -75,5 +75,26 @@ public class LoginServlet extends HttpServlet {
                 }
 
         
+    }
+
+*/
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        try {
+
+            Statement st = con.createStatement();
+            String user = "select * from usertable where username=" + "'" + username + "'" + "and password='" + password + "'";
+            ResultSet rs = st.executeQuery(user);
+            if (rs.next()) {
+                writer.println("Login Success!!!</br>");
+                writer.println("Welcome" + username);
+            } else {
+                writer.println("Username or Password error");
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }
