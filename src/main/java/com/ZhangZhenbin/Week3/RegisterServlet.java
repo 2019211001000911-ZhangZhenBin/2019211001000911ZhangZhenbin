@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
     String password;
 
     public void init(){
-        ServletContext context = getServletContext();
+ /*       ServletContext context = getServletContext();
         driver = context.getInitParameter("driver");
         url = context.getInitParameter("url");
         username = context.getInitParameter("username");
@@ -32,11 +32,13 @@ public class RegisterServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+*/
+        con= (Connection) getServletContext().getAttribute("con");
 
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    doPost(request, response);
     }
 
     @Override
@@ -76,10 +78,11 @@ public class RegisterServlet extends HttpServlet {
         try {
             Statement Greatest = con.createStatement();
             String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthdate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+Birthdate+"')";
-            Greatest.executeUpdate(insertDb);
-            String selectDb = "select * from userdb.dbo.usertable";
-            ResultSet rs = Greatest.executeQuery(selectDb);
-            writer.println(
+            int n= Greatest.executeUpdate(insertDb);
+            System.out.println("n-->"+n);
+       //     String selectDb = "select * from userdb.dbo.usertable";
+        //    ResultSet rs = Greatest.executeQuery(selectDb);
+ /*           writer.println(
                     "<table border=\"1\">" +
                             "<tr>"               +
                             "<td>ID</td>"        +
@@ -109,11 +112,16 @@ public class RegisterServlet extends HttpServlet {
                                 "</tr>"
                 );
             }
-
+*/
+            //use request Attribute
+           // request.setAttribute("rsname",rs);
+           // request.getRequestDispatcher("userList.jsp").forward(request,response);
+           // System.out.println("i am in RegisterServlet --> doPost() --> after forward()");
+            response.sendRedirect("Login.jsp");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        writer.println("</table>");
+//          writer.println("</table>");
 
 
 
