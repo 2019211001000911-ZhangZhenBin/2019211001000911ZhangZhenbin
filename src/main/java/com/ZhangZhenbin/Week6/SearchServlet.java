@@ -15,7 +15,7 @@ public class SearchServlet extends HttpServlet {
         String Select = request.getParameter("search");
         //response.setContentType("text/html");
         if (Text.equals("")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("home");
         } else {
             if (Select.equals("baidu")) {
                 response.sendRedirect("https://www.baidu.com/s?wd=" + Text);

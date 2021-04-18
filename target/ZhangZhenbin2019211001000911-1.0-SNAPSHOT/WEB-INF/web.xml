@@ -95,7 +95,12 @@
         <param-name>password</param-name>
         <param-value>123456789</param-value>
     </context-param>
-   
+
+
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+
+    </welcome-file-list>
 
 
 </web-app>
