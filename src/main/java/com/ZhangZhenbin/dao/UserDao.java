@@ -2,7 +2,6 @@ package com.ZhangZhenbin.dao;
 import com.ZhangZhenbin.model.User;
 
 import java.sql.*;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.sql.Connection;
@@ -14,22 +13,17 @@ import java.sql.SQLException;
 public class UserDao implements IUserDao{
 
     @Override
-    public boolean saveUser(Connection con, User user) throws SQLException {
+    public int saveUser(Connection con, User user) throws SQLException {
         //insert
-
-        Statement Greatest = con.createStatement();
-        String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthdate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+Birthdate+"')";
-        ResultSet rs = Greatest.executeQuery(insertDb);
-        if(rs.next()){
-            user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setEmail(rs.getString("email"));
-            user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getDate("birthdate"));
-            }
-            return true;
+        String sql ="insert into userdb.dbo.usertable value(?,?,?,?,?)";
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setInt(1,user.getId());
+        st.setString(2,user.getUsername());
+        st.setString(3,user.getPassword());
+        st.setString(4,user.getEmail());
+        st.setString(5,user.getGender());
+        st.setDate(6, (java.sql.Date) user.getBirthdate());
+        return st.executeUpdate();
     }
 
     @Override
@@ -38,18 +32,7 @@ public class UserDao implements IUserDao{
         String deleteUser ="delete from userdb.dbo.usertable where id=?";
         PreparedStatement st = con.prepareStatement(deleteUser);
         st.setInt(1,user.getId());
-        ResultSet rs = st.executeQuery();
-        user = null;
-        if(rs.next()){
-            user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setEmail(rs.getString("email"));
-            user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getDate("birthdate"));
-        }
-        return 0;
+        return st.executeUpdate();
     }
 
 
