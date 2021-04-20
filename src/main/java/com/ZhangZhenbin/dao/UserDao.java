@@ -2,6 +2,7 @@ package com.ZhangZhenbin.dao;
 import com.ZhangZhenbin.model.User;
 
 import java.sql.*;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.sql.Connection;
@@ -15,15 +16,10 @@ public class UserDao implements IUserDao{
     @Override
     public boolean saveUser(Connection con, User user) throws SQLException {
         //insert
-        String sql ="insert userdb.dbo.usertable  id=?,username=?,password=?,email=?,gender=?,birthdate=?";
-        PreparedStatement st = con.prepareStatement(sql);
-        st.setInt(1,user.getId());
-        st.setString(2,user.getUsername());
-        st.setString(3,user.getPassword());
-        st.setString(4,user.getEmail());
-        st.setString(5,user.getGender());
-        st.setDate(6, (java.sql.Date) user.getBirthdate());
-        ResultSet rs = st.executeQuery();
+
+        Statement Greatest = con.createStatement();
+        String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthdate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+Birthdate+"')";
+        ResultSet rs = Greatest.executeQuery(insertDb);
         if(rs.next()){
             user = new User();
             user.setId(rs.getInt("id"));
@@ -143,7 +139,7 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthdate(rs.getDate("birthdate"));
         }
-        return (List<User>) user;
+        return (List<User>)user;
     }
 
     @Override
