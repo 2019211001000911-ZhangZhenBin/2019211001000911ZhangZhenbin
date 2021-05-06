@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 @WebServlet(
-        urlPatterns = {"/Register"},loadOnStartup = 1
+        urlPatterns = {"/register"},loadOnStartup = 1
         //name = "RegisterServlet", value = "/RegisterServlet"
 )
 
@@ -38,7 +38,8 @@ public class RegisterServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doPost(request, response);
+
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -80,8 +81,8 @@ public class RegisterServlet extends HttpServlet {
             String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthdate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+Birthdate+"')";
             int n= Greatest.executeUpdate(insertDb);
             System.out.println("n-->"+n);
-       //     String selectDb = "select * from userdb.dbo.usertable";
-        //    ResultSet rs = Greatest.executeQuery(selectDb);
+           // String selectDb = "select * from userdb.dbo.usertable";
+            //ResultSet rs = Greatest.executeQuery(selectDb);
  /*           writer.println(
                     "<table border=\"1\">" +
                             "<tr>"               +
@@ -114,10 +115,13 @@ public class RegisterServlet extends HttpServlet {
             }
 */
             //use request Attribute
-           // request.setAttribute("rsname",rs);
-           // request.getRequestDispatcher("userList.jsp").forward(request,response);
-           // System.out.println("i am in RegisterServlet --> doPost() --> after forward()");
-            response.sendRedirect("Login.jsp");
+
+           //request.setAttribute("rsname",rs);
+            //request.getRequestDispatcher("userList.jsp").forward(request,response);
+
+
+            // System.out.println("i am in RegisterServlet --> doPost() --> after forward()");
+             response.sendRedirect("Login");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
