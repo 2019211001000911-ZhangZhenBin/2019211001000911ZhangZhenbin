@@ -95,7 +95,7 @@ public class ProductDao implements  IProductDao{
     @Override
     public List<Product> findByPrice(double minPrice, double maxPrice, Connection con) throws SQLException {
 
-        String sql ="select * from product where Price=?";
+        String sql ="select * from product where Price between ? and ?";
         PreparedStatement st = con.prepareStatement(sql);
         st.setDouble(1,Product.getPrice());
         ResultSet rs = st.executeQuery();
