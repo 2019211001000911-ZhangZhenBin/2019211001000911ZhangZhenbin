@@ -15,8 +15,8 @@
 <%--Todo 2: Use <jsp:setProperty> to set  beans' property username and password--%>
 
 <jsp:useBean id="Logger" class="com.Lab2.Login" scope="request"/>
-    <jsp:setProperty name="Logger" property="username"/>
-    <jsp:setProperty name="Logger" property="password" />
+    <jsp:setProperty name="Logger" property="username" value="${param.username}"/>
+    <jsp:setProperty name="Logger" property="password" value="${param.password}"/>
 <%
     //todo 3: use if check username is admin and ppassword is admin
     if(Logger.getUsername().equals("ZhangZhenbin") && Logger.getPassword().equals("1305172969")){
